@@ -44,7 +44,7 @@ spec:
             value: info
         volumeMounts:
         - name: varlog
-          mountPath: /var/log/containers
+          mountPath: /var/log
         - name: varlibdockercontainers
           mountPath: /var/lib/docker/containers
           readOnly: true
@@ -52,7 +52,7 @@ spec:
       volumes:
       - name: varlog
         hostPath:
-          path: /var/log/containers
+          path: /var/log
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers

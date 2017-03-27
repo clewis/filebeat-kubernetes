@@ -11,6 +11,12 @@ filebeat.prospectors:
   multiline.pattern: '^\s'
   multiline.match: after
   document_type: kube-logs
+- input_type: log
+  paths:
+    - "/var/log/kube*.log"
+    - "/var/log/etcd*.log"
+  document_type: kube-logs
+  symlinks: true
 
 output.logstash:
     hosts: ${LOGSTASH_HOSTS:?No logstash host configured. Use env var LOGSTASH_HOSTS to set hosts.}
